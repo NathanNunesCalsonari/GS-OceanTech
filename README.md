@@ -20,9 +20,9 @@ Nossa solução é composta por três componentes principais: o sistema de monit
 
 ## Pessoas Autoras
 
-Ana Paula Nascimento Silva (RM 552513) 
-Calina Thalya Santana da Silva (RM 552523) 
-Geovana Ribeiro D. Silva (RM 99646) 
-Leonardo Camargo Lucena (RM 552537)
-Nathan Nunes Calsonari (RM 552539) 
+- Ana Paula Nascimento Silva (RM 552513) 
+- Calina Thalya Santana da Silva (RM 552523) 
+- Geovana Ribeiro D. Silva (RM 99646) 
+- Leonardo Camargo Lucena (RM 552537)
+- Nathan Nunes Calsonari (RM 552539) 
 
