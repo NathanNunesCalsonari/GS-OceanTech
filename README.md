@@ -18,6 +18,15 @@ O principal objetivo do nosso projeto é desenvolver uma aplicação que alerte 
 ## Solução Proposta 
 Nossa solução é composta por três componentes principais: o sistema de monitoramento IoT, a aplicação de reconhecimento de imagem e a plataforma de gestão de ocorrências. 
 
+## Link do Pitch:
+
+https://www.youtube.com/watch?v=J-rPBzdvoFc
+
+## Diagrama de classes
+![image](https://github.com/NathanNunesCalsonari/GS-OceanTech/assets/130010914/02a26587-4618-4978-977d-3d59e9587fd8)
+
+![image](https://github.com/NathanNunesCalsonari/GS-OceanTech/assets/130010914/ac920012-f71b-4f2b-b62b-10a7581a2293)
+
 ## Pessoas Autoras
 
 - Ana Paula Nascimento Silva (RM 552513) 
