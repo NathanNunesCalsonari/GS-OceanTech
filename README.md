@@ -45,7 +45,7 @@ https://www.youtube.com/watch?v=J-rPBzdvoFc
 - PUT plataformas/{id}
 - DELETE plataformas/{id} 
 
-## Pessoas Autoras
+## Integrantes
 
 - Ana Paula Nascimento Silva (RM 552513) 
 - Calina Thalya Santana da Silva (RM 552523) 
