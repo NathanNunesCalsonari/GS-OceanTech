@@ -38,7 +38,7 @@ https://www.youtube.com/watch?v=J-rPBzdvoFc
 - POST usuarios/cadastrar
 - PUT usuarios/{id}
 - DELETE usuarios/{id}
-
+=========================================
 - GET plataformas/listar
 - GET plataformas/{id}
 - POST plataformas/cadastrar
