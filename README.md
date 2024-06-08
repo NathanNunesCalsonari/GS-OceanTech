@@ -27,6 +27,10 @@ https://www.youtube.com/watch?v=J-rPBzdvoFc
 
 ![image](https://github.com/NathanNunesCalsonari/GS-OceanTech/assets/130010914/ac920012-f71b-4f2b-b62b-10a7581a2293)
 
+## Banco de dados
+
+![image](https://github.com/NathanNunesCalsonari/GS-OceanTech/assets/130010914/76cd6e04-964b-49ce-abf2-3325a0dbd3df)
+
 ## Pessoas Autoras
 
 - Ana Paula Nascimento Silva (RM 552513) 
