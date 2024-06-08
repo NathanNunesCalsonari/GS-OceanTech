@@ -31,6 +31,20 @@ https://www.youtube.com/watch?v=J-rPBzdvoFc
 
 ![image](https://github.com/NathanNunesCalsonari/GS-OceanTech/assets/130010914/76cd6e04-964b-49ce-abf2-3325a0dbd3df)
 
+## Endpoints
+
+- GET usuarios/listar
+- GET usuarios/{id}
+- POST usuarios/cadastrar
+- PUT usuarios/{id}
+- DELETE usuarios/{id}
+
+- GET plataformas/listar
+- GET plataformas/{id}
+- POST plataformas/cadastrar
+- PUT plataformas/{id}
+- DELETE plataformas/{id} 
+
 ## Pessoas Autoras
 
 - Ana Paula Nascimento Silva (RM 552513) 
