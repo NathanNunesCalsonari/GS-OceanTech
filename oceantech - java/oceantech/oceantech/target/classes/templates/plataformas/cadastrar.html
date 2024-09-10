@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastrar Plataforma</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Cadastrar Nova Plataforma</h1>
+    <form th:action="@{/plataformas/cadastrar}" th:object="${plataformaDTO}" method="post">
+        <label for="nomePlataforma">Nome:</label>
+        <input type="text" th:field="*{nomePlataforma}" id="nomePlataforma" />
+
+        <label for="dataInstalacao">Data de Instalação:</label>
+        <input type="date" th:field="*{dataInstalacao}" id="dataInstalacao" />
+
+        <label for="statusPlataforma">Status:</label>
+        <input type="text" th:field="*{statusPlataforma}" id="statusPlataforma" />
+
+        <label for="quantidadeFuncionario">Quantidade de Funcionários:</label>
+        <input type="number" th:field="*{quantidadeFuncionario}" id="quantidadeFuncionario" />
+
+        <label for="descricaoPlataforma">Descrição:</label>
+        <textarea th:field="*{descricaoPlataforma}" id="descricaoPlataforma"></textarea>
+
+        <button type="submit">Salvar</button>
+    </form>
+    <a class="button-link mt-20" href="/plataformas/listar">Voltar à Lista</a>
+</div>
+</body>
+</html>

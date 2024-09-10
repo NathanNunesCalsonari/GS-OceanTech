@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalhes da Plataforma</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Detalhes da Plataforma</h1>
+    <p>ID: <span th:text="${plataforma.id}"></span></p>
+    <p>Nome: <span th:text="${plataforma.nomePlataforma}"></span></p>
+    <p>Data de Instalação: <span th:text="${#dates.format(plataforma.dataInstalacao, 'dd/MM/yyyy')}"></span></p>
+    <p>Status: <span th:text="${plataforma.statusPlataforma}"></span></p>
+    <p>Quantidade de Funcionários: <span th:text="${plataforma.quantidadeFuncionario}"></span></p>
+    <p>Descrição: <span th:text="${plataforma.descricaoPlataforma}"></span></p>
+    <a class="button-link" href="/plataformas/listar">Voltar à Lista</a>
+</div>
+</body>
+</html>

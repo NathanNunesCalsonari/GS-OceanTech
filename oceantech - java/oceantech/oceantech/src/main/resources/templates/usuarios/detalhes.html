@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalhes do Usuário</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Detalhes do Usuário</h1>
+    <p>ID: <span th:text="${usuario.id}"></span></p>
+    <p>Nome: <span th:text="${usuario.nomeUsuario}"></span></p>
+    <p>Email: <span th:text="${usuario.email}"></span></p>
+    <p>Data de Criação: <span th:text="${#dates.format(usuario.dataCriacao, 'dd/MM/yyyy HH:mm')}"></span></p>
+    <a class="button-link" href="/usuarios/listar">Voltar à Lista</a>
+</div>
+</body>
+</html>

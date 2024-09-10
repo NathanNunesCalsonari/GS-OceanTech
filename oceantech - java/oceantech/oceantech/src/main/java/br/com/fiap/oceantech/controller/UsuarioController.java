@@ -2,16 +2,15 @@ package br.com.fiap.oceantech.controller;
 
 import br.com.fiap.oceantech.dto.UsuarioDTO;
 import br.com.fiap.oceantech.service.UsuarioService;
-
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
@@ -19,38 +18,56 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping("/listar")
-    public List<UsuarioDTO> listarUsuarios() {
-        return usuarioService.listarTodosUsuarios();
+    public String listarUsuarios(Model model) {
+        List<UsuarioDTO> usuarios = usuarioService.listarTodosUsuarios();
+        model.addAttribute("usuarios", usuarios);
+        return "usuarios/listar";
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UsuarioDTO> obterUsuarioPorId(@PathVariable(value = "id") Long usuarioId) {
-        Optional<UsuarioDTO> usuario = usuarioService.encontrarUsuarioPorId(usuarioId);
-        return usuario.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
-    @PostMapping("/cadastrar")
-    public ResponseEntity<UsuarioDTO> cadastrarUsuario(@Valid @RequestBody UsuarioDTO usuarioDTO) {
-        UsuarioDTO novoUsuario = usuarioService.salvarUsuario(usuarioDTO);
-        return ResponseEntity.ok().body(novoUsuario);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<UsuarioDTO> atualizarUsuario(@PathVariable(value = "id") Long usuarioId,
-                                                       @Valid @RequestBody UsuarioDTO usuarioDTO) {
+    public String obterUsuarioPorId(@PathVariable(value = "id") Long usuarioId, Model model) {
         Optional<UsuarioDTO> usuario = usuarioService.encontrarUsuarioPorId(usuarioId);
         if (usuario.isPresent()) {
-            usuarioDTO.setId(usuarioId);
-            UsuarioDTO usuarioAtualizado = usuarioService.salvarUsuario(usuarioDTO);
-            return ResponseEntity.ok(usuarioAtualizado);
+            model.addAttribute("usuario", usuario.get());
+            return "usuarios/detalhes";
         } else {
-            return ResponseEntity.notFound().build();
+            return "error/404"; // Redireciona para uma página de erro 404 se o usuário não for encontrado
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarUsuario(@PathVariable(value = "id") Long usuarioId) {
+    @GetMapping("/cadastrar")
+    public String mostrarFormularioCadastro(Model model) {
+        model.addAttribute("usuarioDTO", new UsuarioDTO());
+        return "usuarios/cadastrar";
+    }
+
+    @PostMapping("/cadastrar")
+    public String cadastrarUsuario(@ModelAttribute UsuarioDTO usuarioDTO) {
+        usuarioService.salvarUsuario(usuarioDTO);
+        return "redirect:/usuarios/listar";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String mostrarFormularioEdicao(@PathVariable(value = "id") Long usuarioId, Model model) {
+        Optional<UsuarioDTO> usuario = usuarioService.encontrarUsuarioPorId(usuarioId);
+        if (usuario.isPresent()) {
+            model.addAttribute("usuarioDTO", usuario.get());
+            return "usuarios/editar";
+        } else {
+            return "error/404"; // Redireciona para uma página de erro 404 se o usuário não for encontrado
+        }
+    }
+
+    @PostMapping("/editar/{id}")
+    public String atualizarUsuario(@PathVariable(value = "id") Long usuarioId, @ModelAttribute UsuarioDTO usuarioDTO) {
+        usuarioDTO.setId(usuarioId);
+        usuarioService.salvarUsuario(usuarioDTO);
+        return "redirect:/usuarios/listar";
+    }
+
+    @PostMapping("/deletar/{id}")
+    public String deletarUsuario(@PathVariable(value = "id") Long usuarioId) {
         usuarioService.deletarUsuario(usuarioId);
-        return ResponseEntity.ok().build();
+        return "redirect:/usuarios/listar";
     }
 }
